@@ -57,7 +57,7 @@ export default function TodoTopBar() {
             showSide ? "animate-inAnimation" : "animate-outAnimation"
           }`}
         >
-          <div className="pt-14">
+          <div className="pt-12">
             <TodoSideBar />
           </div>
         </div>

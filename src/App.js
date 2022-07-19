@@ -3,9 +3,8 @@ import TodoTopBar from "./components/TodoTopBar";
 
 function App() {
   return (
-    <div className="App font-inter">
+    <div className="App font-inter bg-[#181820]">
       <TodoTopBar />
-      
     </div>
   );
 }
