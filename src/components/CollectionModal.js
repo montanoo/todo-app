@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addCollection, selectValue } from "../features/todo/todoSlice";
+import { useDispatch } from "react-redux";
+import { addCollection } from "../features/todo/todoSlice";
 
 export default function CollectionModal({ toggle }) {
   const [collection, setCollection] = useState();
