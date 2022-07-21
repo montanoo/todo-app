@@ -8,13 +8,13 @@ export const todoSlice = createSlice({
   name: "todo",
   initialState,
   reducers: {
-    add: (state, action) => {
-      state.value.push(action.payload);
+    addCollection: (state, action) => {
+      state.value[action.payload] = {};
     },
   },
 });
 
-export const { add } = todoSlice.actions;
+export const { addCollection } = todoSlice.actions;
 
 export const selectValue = (state) => state.todo.value;
 

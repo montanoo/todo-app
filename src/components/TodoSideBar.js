@@ -1,14 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
+import "boxicons";
+import { useSelector } from "react-redux";
+import { selectValue } from "../features/todo/todoSlice";
 
 export default function TodoSideBar() {
+  const values = useSelector(selectValue);
+  const [colors, setColors] = useState([
+    "bg-teal-500",
+    "bg-emerald-400",
+    "bg-indigo-400",
+    "bg-sky-400",
+    "bg-purple-400",
+  ]);
+
+  const selectColor = () => colors[Math.floor(Math.random() * colors.length)];
+
   return (
-    <>
-      <div className="border-t-[6.5px] border-t-[#181820]"></div>
-      <div className="p-2">
-        <div className="bg-gray-700">
-          <div>I</div>
+    <div className="flex">
+      <div className="h-full flex">
+        <div className="flex flex-col justify-between">
+          <div>
+            <h1 className="text-[#b9b9bc] font-bold px-5 py-4">Collections</h1>
+            {Object.keys(values).map((key) => (
+              <div
+                key={key}
+                className="px-5 py-3 my-2 hover:bg-[#272732] flex cursor-pointer"
+              >
+                <div className={`rounded-xl ${selectColor()} w-7 h-6`}>
+                  <div className="flex p-1"></div>
+                </div>
+                <div className="font-bold pl-4">{key}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

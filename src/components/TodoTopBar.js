@@ -1,24 +1,33 @@
 import React, { useState } from "react";
 import "boxicons";
 import TodoSideBar from "./TodoSideBar";
+import CollectionModal from "./CollectionModal";
 
 export default function TodoTopBar() {
   const [showSide, setShowSide] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = (status) => setShowModal(status);
+
+  console.log(showModal);
 
   return (
-    <div className="h-screen">
-      <div className="bg-[#21212b] text-[#b3b3b6] fixed w-screen z-10">
+    <div className="h-screen flex flex-col">
+      <div className="bg-[#21212b] text-[#b3b3b6] z-10 drop-shadow-xl border-b-[3px] border-b-[#181820] grow-0 shrink basis-auto ">
         <div className="flex justify-between items-center px-4 py-3">
           <div>
             <div
               className="flex cursor-pointer"
               onClick={() => setShowSide(!showSide)}
             >
-              <box-icon name="menu" color="white" size="sm"></box-icon>
+              <box-icon name="menu" color="#b9b9bc" size="sm"></box-icon>
             </div>
           </div>
           <div className="flex">
-            <div className="bg-gradient-to-tr from-pink-600 to-fuchsia-300 cursor-pointer rounded-xl">
+            <div
+              className="bg-gradient-to-tr from-pink-600 to-fuchsia-300 cursor-pointer rounded-xl"
+              onClick={() => setShowModal(!showModal)}
+            >
               <div className="p-1 flex font-bold text-white">
                 <box-icon
                   name="plus"
@@ -53,18 +62,18 @@ export default function TodoTopBar() {
 
       {showSide && (
         <div
-          className={`text-white absolute z-0 h-screen bg-[#21212b] border-t-4 border-t-white ${
+          className={`text-white z-0 grow shrink basis-auto bg-[#21212b] sm:w-3/6 w-1/6  ${
             showSide ? "animate-inAnimation" : "animate-outAnimation"
           }`}
         >
-          <div className="pt-12">
-            <TodoSideBar />
-          </div>
+          <TodoSideBar />
         </div>
       )}
-      <div className="bg-[#181820] h-sreen w-screen">
-        asd
-      </div>
+      {showModal && (
+        <div>
+          <CollectionModal toggle={toggleModal} />
+        </div>
+      )}
     </div>
   );
 }
