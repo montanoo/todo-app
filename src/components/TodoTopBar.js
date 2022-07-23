@@ -2,7 +2,6 @@ import React from "react";
 import "boxicons";
 
 export default function TodoTopBar({ showSide, toggleModal }) {
-  console.log(toggleModal);
   return (
     <div className="flex flex-col">
       <div className="bg-[#21212b] text-[#b3b3b6] ">
@@ -23,7 +22,7 @@ export default function TodoTopBar({ showSide, toggleModal }) {
                   color="white"
                   size="sm"
                   animation="tada-hover"
-                ></box-icon>
+                />
               </div>
             </div>
             <div className="rounded-xl">

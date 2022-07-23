@@ -17,7 +17,7 @@ export default function CollectionModal({ toggle }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm z-20 flex justify-center align-center items-center text-[#b9b9bc]">
+    <div className="fixed inset-0 bg-opacity-30 bg-black backdrop-blur-sm z-20 flex justify-center align-center items-center text-[#b9b9bc]">
       <div className="bg-[#21212b] rounded-lg">
         <div className="p-6 flex flex-col">
           <div className="rounded-full flex justify-between pb-4">
